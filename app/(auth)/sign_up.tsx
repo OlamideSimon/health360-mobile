@@ -11,7 +11,7 @@ const sign_up = () => {
       <Stack.Screen
         options={{
           headerShadowVisible: false,
-          headerTitle: 'Sign in',
+          headerTitle: 'Create an account',
           headerLeft: () => (
             <ScreenHeaderBtn
               iconUrl={images.arrowLeft}
