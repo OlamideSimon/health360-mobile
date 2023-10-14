@@ -1,6 +1,7 @@
 import { Stack, useRouter } from 'expo-router'
 import {
   Image,
+  KeyboardAvoidingView,
   Pressable,
   SafeAreaView,
   Text,
@@ -16,7 +17,7 @@ const sign_in = () => {
   const router = useRouter()
 
   return (
-    <SafeAreaView>
+    <KeyboardAvoidingView>
       <Stack.Screen
         options={{
           headerShadowVisible: false,
@@ -37,15 +38,12 @@ const sign_in = () => {
         <View style={{ gap: 20 }}>
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Email</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter your email address'
-            />
+            <TextInput style={styles.input} placeholder="Enter your email address" />
           </View>
 
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Password</Text>
-            <TextInput style={styles.input} placeholder='Enter your password' />
+            <TextInput style={styles.input} placeholder="Enter your password" />
           </View>
 
           <View
@@ -59,7 +57,7 @@ const sign_in = () => {
             <BouncyCheckbox
               size={20}
               fillColor={COLORS.gray}
-              text='Remember Me'
+              text="Remember Me"
               iconStyle={{ borderColor: COLORS.gray }}
               innerIconStyle={{ borderWidth: 1 }}
               onPress={(isChecked: boolean) => {}}
@@ -83,7 +81,7 @@ const sign_in = () => {
             <View style={styles.bordered_button}>
               <Image
                 source={images.google}
-                resizeMode='contain'
+                resizeMode="contain"
                 style={{ width: 20, height: 20 }}
               />
               <Text style={{ fontSize: 17 }}>Continue with Google</Text>
@@ -93,7 +91,7 @@ const sign_in = () => {
             <View style={styles.bordered_button}>
               <Image
                 source={images.apple}
-                resizeMode='contain'
+                resizeMode="contain"
                 style={{ width: 20, height: 20 }}
               />
               <Text style={{ fontSize: 17 }}>Continue with Apple</Text>
@@ -110,7 +108,7 @@ const sign_in = () => {
           </Text>
         </Text>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   )
 }
 

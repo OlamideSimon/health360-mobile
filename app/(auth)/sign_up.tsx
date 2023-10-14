@@ -2,6 +2,7 @@ import { Stack, router } from 'expo-router'
 import { ReactNode, useState } from 'react'
 import {
   Image,
+  KeyboardAvoidingView,
   Pressable,
   SafeAreaView,
   Text,
@@ -21,7 +22,7 @@ const sign_up = () => {
   }
 
   return (
-    <SafeAreaView>
+    <KeyboardAvoidingView>
       <Stack.Screen
         options={{
           headerShadowVisible: false,
@@ -37,7 +38,7 @@ const sign_up = () => {
       />
 
       {pages[activePage]}
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -49,10 +50,7 @@ const EmailReg = () => {
       <View style={{ gap: 20 }}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Enter your email address'
-          />
+          <TextInput style={styles.input} placeholder="Enter your email address" />
         </View>
 
         <Pressable>
@@ -69,7 +67,7 @@ const EmailReg = () => {
           <View style={styles.bordered_button}>
             <Image
               source={images.google}
-              resizeMode='contain'
+              resizeMode="contain"
               style={{ width: 20, height: 20 }}
             />
             <Text style={{ fontSize: 17 }}>Continue with Google</Text>
@@ -79,7 +77,7 @@ const EmailReg = () => {
           <View style={styles.bordered_button}>
             <Image
               source={images.apple}
-              resizeMode='contain'
+              resizeMode="contain"
               style={{ width: 20, height: 20 }}
             />
             <Text style={{ fontSize: 17 }}>Continue with Apple</Text>
@@ -105,28 +103,22 @@ const OtherDetails = () => {
       <View style={{ gap: 20 }}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Full Name</Text>
-          <TextInput style={styles.input} placeholder='Enter your name' />
+          <TextInput style={styles.input} placeholder="Enter your name" />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Enter your email address'
-          />
+          <TextInput style={styles.input} placeholder="Enter your email address" />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Your preferred password'
-          />
+          <TextInput style={styles.input} placeholder="Your preferred password" />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Confirm Password</Text>
-          <TextInput style={styles.input} placeholder='Confirm your password' />
+          <TextInput style={styles.input} placeholder="Confirm your password" />
         </View>
 
         <Pressable>
