@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  SafeAreaView,
+  ScrollView,
   Text,
   TextInput,
   TouchableWithoutFeedback,
@@ -38,7 +38,7 @@ const sign_in = () => {
         }}
       />
 
-      <SafeAreaView>
+      <ScrollView>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={{ padding: 30, gap: 50 }}>
             <View style={{ gap: 20 }}>
@@ -115,7 +115,7 @@ const sign_in = () => {
             </Text>
           </View>
         </TouchableWithoutFeedback>
-      </SafeAreaView>
+      </ScrollView>
     </KeyboardAvoidingView>
   )
 }
