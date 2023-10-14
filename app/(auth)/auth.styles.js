@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   submit_button: {
     backgroundColor: COLORS.primary,
     color: COLORS.white,
-    paddingVertical: 12,
+    paddingVertical: 15,
     textAlign: 'center',
     borderRadius: 20,
     fontSize: 20,

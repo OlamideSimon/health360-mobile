@@ -9,6 +9,6 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "components/header/screenheader.style.js",
-    "app/(auth)/signin.styles.js"
+    "app/(auth)/auth.styles.js"
   ]
 }

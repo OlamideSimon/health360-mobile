@@ -3,7 +3,7 @@ import React from 'react'
 import { Image, Pressable, SafeAreaView, Text, TextInput, View } from 'react-native'
 import ScreenHeaderBtn from '../../components/header/ScreenHeaderBtn'
 import { COLORS, images } from '../../constants'
-import { styles } from './signin.styles'
+import { styles } from './auth.styles'
 import BouncyCheckbox from 'react-native-bouncy-checkbox'
 
 const sign_in = () => {

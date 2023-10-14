@@ -3,10 +3,10 @@ import React, { ReactNode, useState } from 'react'
 import { Image, Pressable, SafeAreaView, Text, TextInput, View } from 'react-native'
 import ScreenHeaderBtn from '../../components/header/ScreenHeaderBtn'
 import { COLORS, images } from '../../constants'
-import { styles } from './signin.styles'
+import { styles } from './auth.styles'
 
 const sign_up = () => {
-  const [activePage, setActivePage] = useState<number>(1)
+  const [activePage, setActivePage] = useState<number>(2)
 
   const pages: { [key: number]: ReactNode } = {
     1: <EmailReg />,
