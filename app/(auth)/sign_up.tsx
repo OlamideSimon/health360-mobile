@@ -2,12 +2,15 @@ import { Stack, router } from 'expo-router'
 import { ReactNode, useState } from 'react'
 import {
   Image,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   Pressable,
   SafeAreaView,
+  ScrollView,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native'
 import ScreenHeaderBtn from '../../components/header/ScreenHeaderBtn'
@@ -23,7 +26,10 @@ const sign_up = () => {
   }
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+    >
       <Stack.Screen
         options={{
           headerShadowVisible: false,
@@ -37,8 +43,9 @@ const sign_up = () => {
           ),
         }}
       />
-
-      {pages[activePage]}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ScrollView>{pages[activePage]}</ScrollView>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   )
 }

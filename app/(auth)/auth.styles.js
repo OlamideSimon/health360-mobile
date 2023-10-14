@@ -19,9 +19,9 @@ export const styles = StyleSheet.create({
   submit_button: {
     backgroundColor: COLORS.primary,
     color: COLORS.white,
-    paddingVertical: 15,
+    paddingVertical: 18,
     textAlign: 'center',
-    borderRadius: 20,
+    borderRadius: 25,
     fontSize: 20,
   },
   bordered_button: {
