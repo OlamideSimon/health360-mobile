@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react'
 import {
   Image,
   KeyboardAvoidingView,
+  Platform,
   Pressable,
   SafeAreaView,
   Text,
@@ -22,7 +23,7 @@ const sign_up = () => {
   }
 
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <Stack.Screen
         options={{
           headerShadowVisible: false,

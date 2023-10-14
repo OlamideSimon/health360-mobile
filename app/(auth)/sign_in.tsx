@@ -2,6 +2,7 @@ import { Stack, useRouter } from 'expo-router'
 import {
   Image,
   KeyboardAvoidingView,
+  Platform,
   Pressable,
   SafeAreaView,
   Text,
@@ -17,7 +18,7 @@ const sign_in = () => {
   const router = useRouter()
 
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <Stack.Screen
         options={{
           headerShadowVisible: false,
