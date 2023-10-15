@@ -1,19 +1,16 @@
-import { Stack, router } from 'expo-router'
+import { router } from 'expo-router'
 import { ReactNode, useState } from 'react'
 import {
   Image,
   Keyboard,
-  KeyboardAvoidingView,
-  Platform,
   Pressable,
-  SafeAreaView,
   ScrollView,
   Text,
   TextInput,
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
-import ScreenHeaderBtn from '../../components/header/ScreenHeaderBtn'
+import AppContainer from '../../components/AppContainer'
 import { COLORS, images } from '../../constants'
 import { styles } from './auth.styles'
 
@@ -26,27 +23,11 @@ const sign_up = () => {
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1 }}
-    >
-      <Stack.Screen
-        options={{
-          headerShadowVisible: false,
-          headerTitle: 'Create an account',
-          headerLeft: () => (
-            <ScreenHeaderBtn
-              iconUrl={images.arrowLeft}
-              dimension={20}
-              handlePress={() => {}}
-            />
-          ),
-        }}
-      />
+    <AppContainer title='Create an account'>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView>{pages[activePage]}</ScrollView>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+    </AppContainer>
   )
 }
 
@@ -58,7 +39,10 @@ const EmailReg = () => {
       <View style={{ gap: 20 }}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
-          <TextInput style={styles.input} placeholder="Enter your email address" />
+          <TextInput
+            style={styles.input}
+            placeholder='Enter your email address'
+          />
         </View>
 
         <Pressable>
@@ -75,7 +59,7 @@ const EmailReg = () => {
           <View style={styles.bordered_button}>
             <Image
               source={images.google}
-              resizeMode="contain"
+              resizeMode='contain'
               style={{ width: 20, height: 20 }}
             />
             <Text style={{ fontSize: 17 }}>Continue with Google</Text>
@@ -85,7 +69,7 @@ const EmailReg = () => {
           <View style={styles.bordered_button}>
             <Image
               source={images.apple}
-              resizeMode="contain"
+              resizeMode='contain'
               style={{ width: 20, height: 20 }}
             />
             <Text style={{ fontSize: 17 }}>Continue with Apple</Text>
@@ -96,7 +80,7 @@ const EmailReg = () => {
         Already have an account?{' '}
         <Text
           style={{ color: COLORS.primary, fontWeight: '600' }}
-          onPress={() => router.push('/sign_in')}
+          onPress={() => router.push('/auth/sign_in')}
         >
           Sign in
         </Text>
@@ -111,22 +95,28 @@ const OtherDetails = () => {
       <View style={{ gap: 20 }}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Full Name</Text>
-          <TextInput style={styles.input} placeholder="Enter your name" />
+          <TextInput style={styles.input} placeholder='Enter your name' />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
-          <TextInput style={styles.input} placeholder="Enter your email address" />
+          <TextInput
+            style={styles.input}
+            placeholder='Enter your email address'
+          />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Password</Text>
-          <TextInput style={styles.input} placeholder="Your preferred password" />
+          <TextInput
+            style={styles.input}
+            placeholder='Your preferred password'
+          />
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Confirm Password</Text>
-          <TextInput style={styles.input} placeholder="Confirm your password" />
+          <TextInput style={styles.input} placeholder='Confirm your password' />
         </View>
 
         <Pressable>
@@ -138,7 +128,7 @@ const OtherDetails = () => {
         Already have an account?{' '}
         <Text
           style={{ color: COLORS.primary, fontWeight: '600' }}
-          onPress={() => router.push('/sign_in')}
+          onPress={() => router.push('/auth/sign_in')}
         >
           Sign in
         </Text>

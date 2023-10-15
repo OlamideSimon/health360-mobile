@@ -1,15 +1,25 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "module": "esnext",
     "strict": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    // "baseUrl": ".",
+    "paths": {
+      // "@/components/*": ["components/*"],
+      // "@/types/*": ["types/*"],
+      // "@/constants/*": ["constants/*"],
+      // "@/contexts/*": ["context-containers/*"],
+      // "@/helpers/*": ["helpers/*"],
+      // "@/interfaces/*": ["interfaces/*"],
+      // "@/data/*": ["data/*"]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "components/header/screenheader.style.js",
-    "app/(auth)/auth.styles.js"
+    "env.d.ts"
   ]
 }
