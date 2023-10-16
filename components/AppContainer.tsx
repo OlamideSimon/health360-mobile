@@ -5,15 +5,17 @@ import { images } from '../constants'
 import ScreenHeaderBtn from './header/ScreenHeaderBtn'
 
 interface appContainerProps {
-  title: string
+  title?: string
   hideBackButton?: boolean
-  children: ReactNode
+  hideHeader?: boolean
+  children: ReactNode | ReactNode[]
 }
 
 const AppContainer = ({
   children,
   title,
   hideBackButton,
+  hideHeader,
 }: appContainerProps) => {
   const router = useRouter()
 
@@ -37,6 +39,7 @@ const AppContainer = ({
                   }}
                 />
               ),
+          headerShown: hideHeader && false,
         }}
       />
 

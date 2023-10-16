@@ -5,6 +5,11 @@ export interface CallingCode {
   flag: string
 }
 
+export interface CountryDetails {
+  country: string
+  code: string
+}
+
 export interface IpInfoContextInterface {
   data: IPInfoInterface | null
   loading: boolean

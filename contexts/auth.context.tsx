@@ -42,7 +42,7 @@ export default function AuthProvider({ children }: ContextProps) {
 
     setUser(null)
     setToken(null)
-    router.push('/auth/sign_in')
+    router.push('/(auth)/sign_in')
   }
 
   useEffect(() => {
