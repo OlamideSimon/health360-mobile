@@ -1,9 +1,15 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
-import { useColorScheme } from 'react-native'
+import { Text, View, useColorScheme } from 'react-native'
 import AuthProvider from '../contexts/auth.context'
+import {
+  useFonts,
+  Nunito_400Regular,
+  Nunito_500Medium,
+  Nunito_600SemiBold,
+  Nunito_700Bold,
+} from '@expo-google-fonts/dev'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -20,8 +26,10 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
+    Nunito_400Regular,
+    Nunito_500Medium,
+    Nunito_600SemiBold,
+    Nunito_700Bold,
   })
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -48,7 +56,10 @@ function RootLayoutNav() {
   return (
     // <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
     <AuthProvider>
-      <Stack />
+      <Text style={{ fontFamily: 'Nunito_500Medium' }} />
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
     </AuthProvider>
     // </ThemeProvider>
   )

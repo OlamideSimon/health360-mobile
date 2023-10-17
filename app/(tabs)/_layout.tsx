@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router'
+import { Stack, Tabs } from 'expo-router'
 import React from 'react'
 import { Image } from 'react-native'
 import { images } from '../../constants'
