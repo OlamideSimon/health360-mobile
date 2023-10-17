@@ -7,7 +7,7 @@ import ScreenHeaderBtn from './header/ScreenHeaderBtn'
 interface appContainerProps {
   title?: string
   hideBackButton?: boolean
-  hideHeader?: boolean
+  hideTitle?: boolean
   children: ReactNode | ReactNode[]
 }
 
@@ -15,7 +15,7 @@ const AppContainer = ({
   children,
   title,
   hideBackButton,
-  hideHeader,
+  hideTitle,
 }: appContainerProps) => {
   const router = useRouter()
 
@@ -39,7 +39,7 @@ const AppContainer = ({
                   }}
                 />
               ),
-          headerShown: hideHeader && false,
+          headerShown: hideTitle && false,
         }}
       />
 

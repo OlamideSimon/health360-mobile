@@ -6,22 +6,13 @@ module.exports = function (api) {
       // 'transform-inline-environment-variables',
       // Required for expo-router
       'expo-router/babel',
-      ["module:react-native-dotenv", {
-        "moduleName": "@env",
-        "path": ".env",
-      }]
-      // [
-      //   [
-      //     '@tamagui/babel-plugin',
-      //     {
-      //       components: ['tamagui'],
-      //       config: './tamagui.config.ts',
-      //       logTimings: true,
-      //     },
-      //   ],
-      // ],
-      // // NOTE: this is only necessary if you are using reanimated for animations
-      // 'react-native-reanimated/plugin',
+      [
+        'module:react-native-dotenv',
+        {
+          moduleName: '@env',
+          path: '.env',
+        },
+      ],
     ],
   }
 }

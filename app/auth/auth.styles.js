@@ -85,9 +85,15 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
-    color: '#00021a',
-    // color: 'rgba(255, 255, 255, 0.1)',
+    color: '#545559',
   },
-  modal_title: {},
-  modal_description: {},
+  modal_title: {
+    fontWeight: '700',
+    fontSize: 24,
+    textAlign: 'center',
+  },
+  modal_description: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
 })

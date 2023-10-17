@@ -54,7 +54,7 @@ const sign_in = () => {
             <Text style={styles.modal_title}>Account Setup Successful</Text>
             <Text style={styles.modal_description}>Thank you for signing up</Text>
           </View>
-          <Pressable style={{ width: '100%' }} onPress={() => router.push('/health/')}>
+          <Pressable style={{ width: '100%' }} onPress={() => router.push('/(tabs)')}>
             <Text style={styles.submit_button}>Continue</Text>
           </Pressable>
         </View>
@@ -182,7 +182,7 @@ const Details = ({ nextSection }: { nextSection: () => void }) => {
             { id: 'female', label: 'Female', value: 'female' },
             { id: 'others', label: 'Others', value: 'others' },
           ]}
-          layout="column"
+          layout="row"
         />
       </View>
 
