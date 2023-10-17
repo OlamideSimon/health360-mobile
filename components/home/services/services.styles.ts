@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
   service_card: {
     backgroundColor: '#00006b',
     borderRadius: 10,
-    padding: 30,
-    height: 183,
+    padding: 20,
+    height: 150,
   },
   card_title: {
     marginTop: 'auto',
