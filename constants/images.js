@@ -8,6 +8,7 @@ import search from '../assets/images/search-normal.png'
 import calendar from '../assets/images/calendar-2.png'
 import home from '../assets/images/home.png'
 import user from '../assets/images/user.png'
+import user2 from '../assets/images/user-2.png'
 import message from '../assets/images/message-text.png'
 import optician from '../assets/images/optician.png'
 import general from '../assets/images/general.png'
@@ -37,5 +38,6 @@ export default {
   derma,
   filledStar,
   heart,
-  clock
+  clock,
+  user2,
 }
