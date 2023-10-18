@@ -29,7 +29,7 @@ const AppContainer = ({
           headerShadowVisible: false,
           headerTitle: title,
           headerLeft: hideBackButton
-            ? () => null
+            ? () => <></>
             : () => (
                 <ScreenHeaderBtn
                   iconUrl={images.arrowLeft}

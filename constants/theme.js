@@ -8,6 +8,8 @@ const COLORS = {
 
   white: '#F3F4F8',
   darkWhite: '#f6f8fe',
+
+  textInputColor: '#9CA4AB',
 }
 
 const FONT = {
@@ -48,4 +50,5 @@ const SHADOWS = {
   },
 }
 
-export { COLORS, FONT, SIZES, SHADOWS }
+export { COLORS, FONT, SHADOWS, SIZES }
+

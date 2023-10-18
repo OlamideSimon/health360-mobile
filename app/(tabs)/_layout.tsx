@@ -1,5 +1,4 @@
-import { Stack, Tabs } from 'expo-router'
-import React from 'react'
+import { Tabs } from 'expo-router'
 import { Image } from 'react-native'
 import { images } from '../../constants'
 
@@ -7,7 +6,7 @@ const TabLayout = () => {
   return (
     <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
           tabBarLabel: 'Home',
           title: 'Home',
@@ -16,7 +15,7 @@ const TabLayout = () => {
       />
 
       <Tabs.Screen
-        name="schedule"
+        name='schedule'
         options={{
           tabBarLabel: 'Schedule',
           title: 'Schedule',
@@ -25,7 +24,7 @@ const TabLayout = () => {
       />
 
       <Tabs.Screen
-        name="messages"
+        name='messages'
         options={{
           tabBarLabel: 'Message',
           title: 'Message',
@@ -34,7 +33,7 @@ const TabLayout = () => {
       />
 
       <Tabs.Screen
-        name="profile"
+        name='profile'
         options={{
           tabBarLabel: 'Profile',
           title: 'Profile',
