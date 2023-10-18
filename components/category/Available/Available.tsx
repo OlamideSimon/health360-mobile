@@ -58,7 +58,7 @@ const Card = () => {
           </View>
         </View>
       </View>
-      <Pressable>
+      <Pressable onPress={() => router.push('/doctor/1')}>
         <Text style={styles.button}>View info</Text>
       </Pressable>
     </View>
