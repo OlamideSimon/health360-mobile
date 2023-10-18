@@ -7,8 +7,8 @@ import Services from '../../components/home/services/services'
 
 const Home = () => {
   return (
-    <AppContainer hideTitle hideBackButton>
-      <View style={{ flex: 1, paddingTop: '20%', paddingHorizontal: 24 }}>
+    <AppContainer hideHeader>
+      <View style={{ flex: 1, paddingTop: 20, paddingHorizontal: 24 }}>
         <Header />
         <Services />
         <Category />
