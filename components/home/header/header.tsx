@@ -1,14 +1,14 @@
 import { Image, Pressable, Text, TextInput, View } from 'react-native'
 
-import { images } from '../../../constants'
+import { COLORS, images } from '../../../constants'
 import { styles } from './header.styles'
 
 const Header = () => {
   return (
-    <>
+    <View style={{ paddingHorizontal: 6 }}>
       <View style={styles.header_container}>
         <View style={{ gap: 2 }}>
-          <Text style={{ fontWeight: '600', fontSize: 16 }}>Hi Simon</Text>
+          <Text style={{ fontWeight: '600', fontSize: 16 }}>Hi, Simon</Text>
           <View
             style={{
               display: 'flex',
@@ -20,9 +20,9 @@ const Header = () => {
             <Image
               source={images.location}
               alt='location'
-              style={{ width: 20, height: 20 }}
+              style={{ width: 20, height: 20, opacity: 0.6 }}
             />
-            <Text style={{ fontSize: 12, color: '#78828a' }}>Nigeria</Text>
+            <Text style={{ fontSize: 12, color: COLORS.gray }}>Nigeria</Text>
           </View>
         </View>
 
@@ -30,13 +30,14 @@ const Header = () => {
           style={{
             borderRadius: 30,
             borderWidth: 1,
-            borderColor: '#000',
+            borderColor: '#006654',
             padding: 10,
           }}
         >
           <Image
             style={styles.header_image}
             source={images.notification}
+            tintColor={'#006654'}
             alt='notifications'
           />
         </Pressable>
@@ -47,11 +48,15 @@ const Header = () => {
           Looking for a specialist?
         </Text>
         <View style={styles.input_container}>
-          <TextInput style={styles.input} />
-          <Image source={images.search} />
+          <TextInput
+            style={styles.input}
+            placeholder='Search'
+            placeholderTextColor={'#000'}
+          />
+          <Image source={images.search} style={{ opacity: 0.5 }} />
         </View>
       </View>
-    </>
+    </View>
   )
 }
 
