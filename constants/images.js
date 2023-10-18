@@ -9,6 +9,14 @@ import calendar from '../assets/images/calendar-2.png'
 import home from '../assets/images/home.png'
 import user from '../assets/images/user.png'
 import message from '../assets/images/message-text.png'
+import optician from '../assets/images/optician.png'
+import general from '../assets/images/general.png'
+import hair from '../assets/images/hair.png'
+import cardio from '../assets/images/cardiology.png'
+import derma from '../assets/images/dermatology.png'
+import filledStar from '../assets/images/star.svg'
+import heart from '../assets/images/heart.png'
+import clock from '../assets/images/clock.png'
 
 export default {
   arrowLeft,
@@ -22,4 +30,12 @@ export default {
   home,
   user,
   message,
+  optician,
+  general,
+  hair,
+  cardio,
+  derma,
+  filledStar,
+  heart,
+  clock
 }
