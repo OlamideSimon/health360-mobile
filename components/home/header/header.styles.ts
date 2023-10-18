@@ -20,11 +20,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginTop: 5,
     borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.50)',
   },
   input: {
     paddingRight: 16,
     height: 52,
+    fontFamily: 'Nunito_600SemiBold',
+    letterSpacing: 0.1,
     paddingHorizontal: 10,
     flex: 1,
+    opacity: 0.5,
   },
 })

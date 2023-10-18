@@ -1,13 +1,18 @@
 import { Stack, useRouter } from 'expo-router'
 import { ReactNode } from 'react'
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
+import {
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native'
 import { images } from '../constants'
 import ScreenHeaderBtn from './header/ScreenHeaderBtn'
 
 interface appContainerProps {
   title?: string
   hideBackButton?: boolean
-  hideTitle?: boolean
+  hideHeader?: boolean
   children: ReactNode | ReactNode[]
 }
 
@@ -15,7 +20,7 @@ const AppContainer = ({
   children,
   title,
   hideBackButton,
-  hideTitle,
+  hideHeader,
 }: appContainerProps) => {
   const router = useRouter()
 
@@ -24,26 +29,28 @@ const AppContainer = ({
       style={{ flex: 1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <Stack.Screen
-        options={{
-          headerShadowVisible: false,
-          headerTitle: title,
-          headerLeft: hideBackButton
-            ? () => <></>
-            : () => (
-                <ScreenHeaderBtn
-                  iconUrl={images.arrowLeft}
-                  dimension={20}
-                  handlePress={() => {
-                    router.back()
-                  }}
-                />
-              ),
-          headerShown: hideTitle && false,
-        }}
-      />
+      <SafeAreaView>
+        <Stack.Screen
+          options={{
+            headerShadowVisible: false,
+            headerTitle: title,
+            headerLeft: hideBackButton
+              ? () => <></>
+              : () => (
+                  <ScreenHeaderBtn
+                    iconUrl={images.arrowLeft}
+                    dimension={20}
+                    handlePress={() => {
+                      router.back()
+                    }}
+                  />
+                ),
+            headerShown: hideHeader && false,
+          }}
+        />
 
-      <ScrollView>{children}</ScrollView>
+        <ScrollView>{children}</ScrollView>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   )
 }
