@@ -1,15 +1,14 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome'
-import { SplashScreen, Stack } from 'expo-router'
-import { useEffect } from 'react'
-import { Text, View, useColorScheme } from 'react-native'
-import AuthProvider from '../contexts/auth.context'
 import {
-  useFonts,
   Nunito_400Regular,
   Nunito_500Medium,
   Nunito_600SemiBold,
   Nunito_700Bold,
+  useFonts,
 } from '@expo-google-fonts/dev'
+import { SplashScreen, Stack } from 'expo-router'
+import { useEffect } from 'react'
+import { Text, useColorScheme } from 'react-native'
+import AuthProvider from '../contexts/auth.context'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -58,7 +57,7 @@ function RootLayoutNav() {
     <AuthProvider>
       <Text style={{ fontFamily: 'Nunito_500Medium' }} />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
       </Stack>
     </AuthProvider>
     // </ThemeProvider>

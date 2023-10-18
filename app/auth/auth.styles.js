@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     paddingRight: 16,
     height: 52,
     paddingHorizontal: 10,
+    color: COLORS.textInputColor
   },
   input: {
     marginTop: 5,
@@ -33,6 +34,7 @@ export const styles = StyleSheet.create({
     paddingRight: 16,
     height: 52,
     paddingHorizontal: 10,
+    color: COLORS.textInputColor
   },
   submit_button: {
     backgroundColor: COLORS.primary,
