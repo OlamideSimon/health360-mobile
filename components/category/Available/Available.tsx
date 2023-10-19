@@ -17,6 +17,7 @@ const Available = () => {
         data={[...new Array(10).keys()]}
         renderItem={() => <Card />}
         contentContainerStyle={{ gap: 17 }}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   )
@@ -35,7 +36,6 @@ const Card = () => {
 
         <View style={{ marginTop: 20, gap: 6 }}>
           <View style={styles.rating_container}>
-            {/* <Image source={images.heart} style={{ width: 15, height: 15 }} /> */}
             <AntDesign name="star" size={15} color="#FFC127" />
             <Text>5.0</Text>
           </View>
@@ -47,11 +47,11 @@ const Card = () => {
             <Text style={styles.booking_text}>booking Periods</Text>
             <View style={styles.flex_container}>
               <View style={styles.flex_container}>
-                <AntDesign name="calendar" color="#fff" size={10} />
+                <AntDesign name="calendar" color="#333" size={10} />
                 <Text style={styles.booking_text}>Mon-Fri</Text>
               </View>
               <View style={styles.flex_container}>
-                <AntDesign name="clockcircle" color="#fff" size={10} />
+                <AntDesign name="clockcircle" color="#333" size={10} />
                 <Text style={styles.booking_text}>7am-9pm</Text>
               </View>
             </View>

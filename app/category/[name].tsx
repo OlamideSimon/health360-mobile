@@ -11,8 +11,8 @@ const Category = () => {
   const name = params.name.toString()[0].toUpperCase() + params.name.slice(1)
 
   return (
-    <AppContainer title={name}>
-      <View style={{ flex: 1, paddingTop: '5%', paddingHorizontal: 24, gap: 60 }}>
+    <AppContainer title={name} view>
+      <View style={{ paddingTop: '5%', paddingHorizontal: 24, gap: 60 }}>
         <Available />
         <Popular />
       </View>

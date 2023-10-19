@@ -4,12 +4,7 @@ import * as SecureStore from 'expo-secure-store'
 import { createContext, useEffect, useState } from 'react'
 
 import { thirdPartyRequests } from '../helpers/api_requests/3rdpart.request'
-import {
-  AuthContextProps,
-  ContextProps,
-  IPInfoInterface,
-  User,
-} from '../interface'
+import { AuthContextProps, ContextProps, IPInfoInterface, User } from '../interface'
 
 const initialAuthState: AuthContextProps = {
   user: null,
@@ -42,15 +37,14 @@ export default function AuthProvider({ children }: ContextProps) {
 
     setUser(null)
     setToken(null)
-    router.push('/(auth)/sign_in')
+    router.push('/auth/sign_in')
   }
 
   useEffect(() => {
     const fetchPosition = async () => {
-      const ip =
-        await thirdPartyRequests.fetchIpInfoData<IPInfoInterface | null>(
-          setIpInfoDataLoading
-        )
+      const ip = await thirdPartyRequests.fetchIpInfoData<IPInfoInterface | null>(
+        setIpInfoDataLoading
+      )
       if (ip.success && ip.data) setIpInfo(ip.data)
     }
     if (!ip_info) fetchPosition()
@@ -71,9 +65,5 @@ export default function AuthProvider({ children }: ContextProps) {
     isLoggedIn,
   }
 
-  return (
-    <AuthContext.Provider value={authContextValue}>
-      {children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>
 }

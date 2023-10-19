@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Image, Pressable, Text, View } from 'react-native'
+import { FlatList, Image, Pressable, ScrollView, Text, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
 import { styles } from './popular.styles'
@@ -10,14 +10,12 @@ const Popular = () => {
   return (
     <View>
       <Text style={styles.header}>Popular Doctors</Text>
-      <View style={{ marginBottom: 20 }}>
-        <FlatList
-          data={[...new Array(20)]}
-          renderItem={() => <Card />}
-          keyExtractor={(item, index) => `${index}`}
-          contentContainerStyle={{ rowGap: 35 }}
-        />
-      </View>
+      <FlatList
+        data={[...new Array(20)]}
+        renderItem={() => <Card />}
+        keyExtractor={(item, index) => `${index}`}
+        contentContainerStyle={{ rowGap: 35, marginBottom: 20 }}
+      />
     </View>
   )
 }
