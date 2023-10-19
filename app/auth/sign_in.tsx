@@ -36,7 +36,7 @@ const sign_in = () => {
   }
 
   return (
-    <AppContainer title='Sign in' hideBackButton>
+    <AppContainer title="Sign in" hideBackButton>
       <View
         style={{
           padding: 30,
@@ -52,14 +52,9 @@ const sign_in = () => {
           <Image source={images.checked} />
           <View>
             <Text style={styles.modal_title}>Account Setup Successful</Text>
-            <Text style={styles.modal_description}>
-              Thank you for signing up
-            </Text>
+            <Text style={styles.modal_description}>Thank you for signing up</Text>
           </View>
-          <Pressable
-            style={{ width: '100%' }}
-            onPress={() => router.push('/(tabs)')}
-          >
+          <Pressable style={{ width: '100%' }} onPress={() => router.push('/health/')}>
             <Text style={styles.submit_button}>Continue</Text>
           </Pressable>
         </View>
@@ -107,13 +102,11 @@ const Phone = ({ nextSection }: { nextSection: () => void }) => {
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Phone Number</Text>
           <View style={styles.code_container}>
-            <Text style={{ color: COLORS.textInputColor }}>
-              +{nationality?.code}
-            </Text>
+            <Text style={{ color: COLORS.textInputColor }}>+{nationality?.code}</Text>
             <TextInput
               style={[styles.code_input, { flex: 1 }]}
-              placeholder='Enter your Phone Number'
-              keyboardType='phone-pad'
+              placeholder="Enter your Phone Number"
+              keyboardType="phone-pad"
             />
           </View>
         </View>
@@ -141,26 +134,10 @@ const OTP = ({ nextSection }: { nextSection: () => void }) => {
       </View>
 
       <View style={styles.otp_container}>
-        <TextInput
-          maxLength={1}
-          keyboardType='number-pad'
-          style={styles.otp_input}
-        />
-        <TextInput
-          maxLength={1}
-          keyboardType='number-pad'
-          style={styles.otp_input}
-        />
-        <TextInput
-          maxLength={1}
-          keyboardType='number-pad'
-          style={styles.otp_input}
-        />
-        <TextInput
-          maxLength={1}
-          keyboardType='number-pad'
-          style={styles.otp_input}
-        />
+        <TextInput maxLength={1} keyboardType="number-pad" style={styles.otp_input} />
+        <TextInput maxLength={1} keyboardType="number-pad" style={styles.otp_input} />
+        <TextInput maxLength={1} keyboardType="number-pad" style={styles.otp_input} />
+        <TextInput maxLength={1} keyboardType="number-pad" style={styles.otp_input} />
       </View>
 
       <Text style={styles.countdown}>2:00</Text>
@@ -181,22 +158,20 @@ const Details = ({ nextSection }: { nextSection: () => void }) => {
     <View style={{ gap: 30 }}>
       <View>
         <Text style={styles.title}>Complete your account</Text>
-        <Text style={styles.description}>
-          Input your verified infomation below
-        </Text>
+        <Text style={styles.description}>Input your verified infomation below</Text>
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Full Name</Text>
-        <TextInput style={styles.input} placeholder='Enter your full name' />
+        <TextInput style={styles.input} placeholder="Enter your full name" />
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Age</Text>
         <TextInput
           style={styles.input}
-          placeholder='Enter your age'
-          keyboardType='number-pad'
+          placeholder="Enter your age"
+          keyboardType="number-pad"
         />
       </View>
 
@@ -207,7 +182,7 @@ const Details = ({ nextSection }: { nextSection: () => void }) => {
             { id: 'female', label: 'Female', value: 'female' },
             { id: 'other', label: 'Other', value: 'other' },
           ]}
-          layout='row'
+          layout="row"
         />
       </View>
 

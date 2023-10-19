@@ -53,7 +53,7 @@ const AppContainer = ({
         />
 
         {view ? (
-          <ScrollView showsVerticalScrollIndicator={false}>
+          <ScrollView>
             <View style={{ flex: 1 }}>{children}</View>
           </ScrollView>
         ) : (

@@ -1,30 +1,17 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  header: {
-    color: 'rgba(17, 17, 17, 0.50)',
-    fontSize: 16,
-    fontWeight: '700',
-    lineHeight: 26,
-    letterSpacing: 0.08,
-    marginBottom: 13,
-  },
   card: {
-    backgroundColor: '#00241D',
+    backgroundColor: '#EFF4FF',
     borderRadius: 20,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
     columnGap: 35,
-  },
-  rating_container: {
-    marginLeft: 'auto',
-    flexDirection: 'row',
-    alignItems: 'center',
-    columnGap: 2,
+    marginBottom: 40,
   },
   title: {
-    color: '#FFF',
+    color: '#000',
     fontSize: 14,
     fontWeight: '700',
     lineHeight: 20 /* 142.857% */,
@@ -32,7 +19,7 @@ export const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   profession: {
-    color: '#FFF',
+    color: '#000',
     fontSize: 12,
     fontWeight: '400',
     lineHeight: 20 /* 166.667% */,
@@ -40,7 +27,7 @@ export const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   experience: {
-    color: '#FFF',
+    color: '#000',
     fontSize: 12,
     fontWeight: '400',
     lineHeight: 20 /* 166.667% */,
@@ -49,7 +36,7 @@ export const styles = StyleSheet.create({
   },
   booking_text: {
     fontSize: 8,
-    color: '#fff',
+    color: '#000',
     fontWeight: '500',
     lineHeight: 20,
     letterSpacing: 0.04,
