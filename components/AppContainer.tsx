@@ -5,6 +5,7 @@ import {
   Platform,
   SafeAreaView,
   ScrollView,
+  View,
 } from 'react-native'
 import { images } from '../constants'
 import ScreenHeaderBtn from './header/ScreenHeaderBtn'
@@ -14,6 +15,7 @@ interface appContainerProps {
   hideBackButton?: boolean
   hideHeader?: boolean
   children: ReactNode | ReactNode[]
+  view?: boolean
 }
 
 const AppContainer = ({
@@ -21,6 +23,7 @@ const AppContainer = ({
   title,
   hideBackButton,
   hideHeader,
+  view,
 }: appContainerProps) => {
   const router = useRouter()
 
@@ -49,7 +52,13 @@ const AppContainer = ({
           }}
         />
 
-        <ScrollView>{children}</ScrollView>
+        {view ? (
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{ flex: 1 }}>{children}</View>
+          </ScrollView>
+        ) : (
+          <ScrollView>{children}</ScrollView>
+        )}
       </SafeAreaView>
     </KeyboardAvoidingView>
   )

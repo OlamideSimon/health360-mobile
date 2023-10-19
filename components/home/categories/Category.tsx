@@ -15,33 +15,33 @@ const Category = () => {
 
       <View style={styles.flex_container}>
         <Card
-          title='Cardiology'
-          bg_color='#ff0000'
-          href='cardiology'
+          title="Cardiology"
+          bg_color="#ff0000"
+          href="cardiology"
           icon={images.cardio}
         />
         <Card
-          title='Hair Issues'
-          bg_color='#DEFA6E'
-          href='hair issues'
+          title="Hair Issues"
+          bg_color="#DEFA6E"
+          href="hair issues"
           icon={images.hair}
         />
         <Card
-          title='General Checkup'
-          bg_color='#900808'
-          href='/general checkup'
+          title="General Checkup"
+          bg_color="#900808"
+          href="general checkup"
           icon={images.general}
         />
         <Card
-          title='Optician'
-          bg_color='#587DBD'
-          href='/optician'
+          title="Optician"
+          bg_color="#587DBD"
+          href="optician"
           icon={images.optician}
         />
         <Card
-          title='Dermatology'
-          bg_color='#587DBD'
-          href='/dermatology'
+          title="Dermatology"
+          bg_color="#587DBD"
+          href="dermatology"
           icon={images.derma}
         />
       </View>

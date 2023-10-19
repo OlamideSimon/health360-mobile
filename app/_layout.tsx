@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/dev'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
-import { Text, useColorScheme } from 'react-native'
+import { Text, View, useColorScheme } from 'react-native'
 import AuthProvider from '../contexts/auth.context'
 
 export {
