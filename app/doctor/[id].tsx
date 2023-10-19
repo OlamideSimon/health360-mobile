@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: 20 /* 142.857% */,
     letterSpacing: 0.07,
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
   },
   profession: {
     fontSize: 12,
-    fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: 20 /* 166.667% */,
     letterSpacing: 0.06,
@@ -93,7 +91,6 @@ const styles = StyleSheet.create({
   rate: {
     color: 'rgba(0, 0, 0, 0.50)',
     fontSize: 10,
-    fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: 20 /* 200% */,
     letterSpacing: 0.05,
@@ -124,7 +121,6 @@ const styles = StyleSheet.create({
   },
   sub_headers: {
     fontSize: 16,
-    fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: 26 /* 162.5% */,
     letterSpacing: 0.08,
@@ -133,7 +129,6 @@ const styles = StyleSheet.create({
   },
   sub_description: {
     fontSize: 14,
-    fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: 26 /* 185.714% */,
     letterSpacing: 0.07,

@@ -57,7 +57,7 @@ function RootLayoutNav() {
     <AuthProvider>
       <Text style={{ fontFamily: 'Nunito_500Medium' }} />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="health" options={{ headerShown: false }} />
       </Stack>
     </AuthProvider>
     // </ThemeProvider>

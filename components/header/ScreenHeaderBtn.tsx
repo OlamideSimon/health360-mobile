@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, Pressable, Image } from 'react-native'
 
 import styles from './screenheader.style'
 
@@ -11,13 +11,13 @@ type Header = {
 
 const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }: Header) => {
   return (
-    <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
+    <Pressable style={styles.btnContainer} onPress={handlePress}>
       <Image
         source={iconUrl}
         resizeMode="cover"
         style={{ ...styles.btnImg, width: dimension, height: dimension }}
       />
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 
