@@ -4,11 +4,10 @@ import { Dimensions, ScrollView, Text, View } from 'react-native'
 import ScreenHeaderBtn from '../../components/header/ScreenHeaderBtn'
 import { images } from '../../constants'
 import Card from '../../components/book/Card/Card'
-import DateTImePicker from '../../components/book/DateTimePicker/DateTImePicker'
 import Footer from '../../components/book/Footer/Footer'
 import { FontAwesome5 } from '@expo/vector-icons'
 import Reviews from '../../components/book/Reviews/reviews'
-import AppContainer from '../../components/AppContainer'
+import DateTIme from '../../components/book/DateTimePicker/DateTImePicker'
 
 const Book = () => {
   const router = useRouter()
@@ -33,7 +32,7 @@ const Book = () => {
       <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 20, rowGap: 20 }}>
         <Card />
 
-        <DateTImePicker />
+        <DateTIme />
 
         <View>
           <Text
