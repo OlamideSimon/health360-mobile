@@ -54,12 +54,14 @@ function RootLayoutNav() {
 
   return (
     // <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    // <TamaguiProvider config={config}>
     <AuthProvider>
       <Text style={{ fontFamily: 'Nunito_500Medium' }} />
       <Stack>
         <Stack.Screen name="health" options={{ headerShown: false }} />
       </Stack>
     </AuthProvider>
+    // </TamaguiProvider>
     // </ThemeProvider>
   )
 }

@@ -1,10 +1,30 @@
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import AppContainer from '../../components/AppContainer'
+import ProfileHeader from '../../components/profile/profile/Profile'
+import Notifications from '../../components/profile/notifications/Notifications'
+import Preferences from '../../components/profile/preferences/Preference'
+import Others from '../../components/profile/others/Others'
+import { MaterialIcons } from '@expo/vector-icons'
 
 const Profile = () => {
   return (
-    <AppContainer hideHeader>
-      <Text>This is a test to show whether tabs are working perfectly</Text>
+    <AppContainer title="User Profile" hideBackButton>
+      <View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 24 }}>
+        <ProfileHeader />
+
+        <Notifications />
+
+        <Preferences />
+
+        <Others />
+
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text>Logout</Text>
+          <View style={{ marginLeft: 'auto' }}>
+            <MaterialIcons name="logout" size={16} color="#545559" />
+          </View>
+        </View>
+      </View>
     </AppContainer>
   )
 }

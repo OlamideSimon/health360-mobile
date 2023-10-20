@@ -13,6 +13,15 @@ module.exports = function (api) {
           path: '.env',
         },
       ],
+      // [
+      //   '@tamagui/babel-plugin',
+      //   {
+      //     components: ['tamagui'],
+      //     config: './tamagui.config.ts',
+      //     logTimings: true,
+      //   },
+      // ],
+      // 'react-native-reanimated/plugin',
     ],
   }
 }
