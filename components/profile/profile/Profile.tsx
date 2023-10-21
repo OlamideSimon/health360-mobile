@@ -4,9 +4,16 @@ import { styles } from './profile.styles'
 import { images } from '../../../constants'
 import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
+import countries from '../../../data/countries.json'
 
 const ProfileHeader = () => {
   const router = useRouter()
+  const fetchImage = () => {
+    const country = countries.find(({ name }) => name === 'Nigeria')
+    return country?.flag
+  }
+
+  console.log(fetchImage())
 
   return (
     <View style={styles.container}>
@@ -17,11 +24,6 @@ const ProfileHeader = () => {
           <View style={styles.rowContainer}>
             <AntDesign name="user" size={16} color="#292D32" />
             <Text style={styles.gender}>Female</Text>
-          </View>
-          <View style={styles.rowContainer}>
-            {/* Nigeria Icon */}
-            <AntDesign name="user" size={16} color="#292D32" />
-            <Text style={styles.country}>Nigeria</Text>
           </View>
         </View>
       </View>
