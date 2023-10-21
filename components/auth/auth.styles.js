@@ -38,12 +38,18 @@ export const styles = StyleSheet.create({
   },
   submit_button: {
     backgroundColor: COLORS.primary,
-    color: COLORS.white,
+
     paddingVertical: 16,
     textAlign: 'center',
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 24,
     fontSize: 16,
     fontWeight: '700',
+  },
+  submit_button_text: {
+    color: COLORS.white,
   },
   bordered_button: {
     backgroundColor: 'transparent',

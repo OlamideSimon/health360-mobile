@@ -1,10 +1,10 @@
 import { AntDesign } from '@expo/vector-icons'
-import React, { useState } from 'react'
-import { Pressable, Text, View } from 'react-native'
-import { styles } from './datetimepicker.styles'
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker'
+import { useState } from 'react'
+import { Pressable, Text, View } from 'react-native'
+import { styles } from './datetimepicker.styles'
 
 const DateTIme = () => {
   // TODO: When sending as a request to backend, time should be changed to time.getTIme()
@@ -13,7 +13,10 @@ const DateTIme = () => {
   const [show, setShow] = useState(false)
   const [mode, setMode] = useState<'date' | 'time'>('date')
 
-  const onChange = (event: DateTimePickerEvent, selectedDate: Date | undefined) => {
+  const onChange = (
+    event: DateTimePickerEvent,
+    selectedDate: Date | undefined
+  ) => {
     const currentDate = selectedDate
     setShow(false)
     if (mode === 'date') {
@@ -33,24 +36,31 @@ const DateTIme = () => {
 
   return (
     <View>
-      <Text style={styles.booking_time_header}>book a time for your session</Text>
+      <Text style={styles.booking_time_header}>
+        book a time for your session
+      </Text>
       <View style={{ flexDirection: 'row', columnGap: 37 }}>
-        <Pressable onPress={showTimePicker} style={styles.dateTimePickerContainer}>
-          <AntDesign name="clockcircleo" size={15} color="#000" />
+        <Pressable
+          onPress={showTimePicker}
+          style={styles.dateTimePickerContainer}
+        >
+          <AntDesign name='clockcircleo' size={15} color='#000' />
           <Text style={styles.datePicker_text}>select preferred time</Text>
         </Pressable>
-        <Pressable onPress={showDatePicker} style={styles.dateTimePickerContainer}>
-          <AntDesign name="clockcircleo" size={15} color="#000" />
+        <Pressable
+          onPress={showDatePicker}
+          style={styles.dateTimePickerContainer}
+        >
+          <AntDesign name='clockcircleo' size={15} color='#000' />
           <Text style={styles.datePicker_text}>select preferred date</Text>
         </Pressable>
       </View>
-
       {show && (
         <DateTimePicker
-          testID="datetime"
+          testID='datetime'
           value={mode === 'date' ? date! : time!}
           mode={mode}
-          is24Hour
+          display='inline'
           onChange={onChange}
           minimumDate={new Date()}
         />

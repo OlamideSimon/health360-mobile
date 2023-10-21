@@ -7,12 +7,12 @@ import {
 } from '@expo-google-fonts/dev'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
-import { Text, View, useColorScheme } from 'react-native'
+import { Text, useColorScheme } from 'react-native'
 import AuthProvider from '../contexts/auth.context'
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from 'expo-router'
 
 export const unstable_settings = {

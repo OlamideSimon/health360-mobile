@@ -5,11 +5,12 @@ import {
   IpInfoContextInterface,
 } from './api.interface'
 import { AuthContextProps, ContextProps } from './context.interface'
-import { User } from './user.api.interface'
+import { AuthPhoneFields, User } from './user.interface'
 
 export {
   ApiResponse,
   AuthContextProps,
+  AuthPhoneFields,
   CallingCode,
   ContextProps,
   IPInfoInterface,
