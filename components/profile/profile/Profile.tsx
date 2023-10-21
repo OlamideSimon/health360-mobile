@@ -4,9 +4,18 @@ import { styles } from './profile.styles'
 import { images } from '../../../constants'
 import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
+import countries from '../../../data/countries.json'
+import SvgUri from 'react-native-svg'
 
 const ProfileHeader = () => {
   const router = useRouter()
+  const fetchImage = () => {
+    const country = countries.find(({ name }) => name === 'Nigeria')
+    // console.log(fetchImage)
+    return country?.flag
+  }
+
+  console.log(fetchImage())
 
   return (
     <View style={styles.container}>
@@ -20,7 +29,12 @@ const ProfileHeader = () => {
           </View>
           <View style={styles.rowContainer}>
             {/* Nigeria Icon */}
-            <AntDesign name="user" size={16} color="#292D32" />
+            <SvgUri  />
+            {/* <Svg
+              source={{ uri: 'https://flagcdn.com/ng.svg' }}
+              style={{ width: 16, height: 16 }}
+            /> */}
+            {/* <AntDesign name="user" size={16} color="#292D32" /> */}
             <Text style={styles.country}>Nigeria</Text>
           </View>
         </View>

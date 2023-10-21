@@ -61,7 +61,7 @@ export default function AuthProvider({ children }: ContextProps) {
       data: ip_info,
       loading: ipInfoDataLoading,
     },
-    logout: logout,
+    logout,
     isLoggedIn,
   }
 

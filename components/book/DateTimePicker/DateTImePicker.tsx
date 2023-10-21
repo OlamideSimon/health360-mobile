@@ -50,7 +50,7 @@ const DateTIme = () => {
           testID="datetime"
           value={mode === 'date' ? date! : time!}
           mode={mode}
-          is24Hour
+          // is24Hour
           onChange={onChange}
           minimumDate={new Date()}
         />
