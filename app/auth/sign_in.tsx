@@ -23,7 +23,7 @@ const sign_in = () => {
     if (newStep <= 2 && newStep > 0) {
       setActiveStep(newStep)
     } else {
-      router.push('/auth/account_setup')
+      router.push('/health/')
     }
   }
 
