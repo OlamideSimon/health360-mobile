@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
   },
   card_title: {
     marginTop: 23,
-    width: 209,
+    width: 253,
+    // width: 209,
     fontWeight: '700',
     fontFamily: 'Nunito_700Bold',
     letterSpacing: 0.09,
@@ -26,7 +27,8 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 20,
     marginBottom: 'auto',
-    width: 236,
+    // width: 236,
+    width: 300,
   },
   activeCarouselIndicator: {
     width: 6,

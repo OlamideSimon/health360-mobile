@@ -7,10 +7,12 @@ export interface ContextProps {
 
 export interface AuthContextProps {
   token: string | null
-  setToken: (token: string | null) => void
+  setToken: (token: string) => void
   user: User | null
   setUser: (user: any) => void
   ip_info: IpInfoContextInterface
-  isLoggedIn: () => boolean
+  isLoggedIn: boolean
+  // isLoggedIn: () => boolean
   logout: () => void
+  setIsLoggedIn: (loggedIn: boolean) => void
 }

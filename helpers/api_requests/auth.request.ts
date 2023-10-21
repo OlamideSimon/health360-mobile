@@ -45,8 +45,8 @@ export const authRequests = {
     try {
       const resp = await useApi(setLoading).post('/auth/login', reqBody)
 
-      await SecureStore.setItemAsync('token', resp?.data?.token)
-      await SecureStore.setItemAsync('user', JSON.stringify(resp?.data?.user))
+      // await SecureStore.setItemAsync('token', resp?.data?.token)
+      // await SecureStore.setItemAsync('user', JSON.stringify(resp?.data?.user))
 
       return apiResponse<D>(true, 'Logged in successfully', resp?.data)
     } catch (err: any) {

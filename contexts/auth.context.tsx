@@ -21,8 +21,9 @@ const initialAuthState: AuthContextProps = {
     data: null,
     loading: false,
   },
-  isLoggedIn: () => false,
+  isLoggedIn: false,
   setToken: (token: string | null) => null,
+  setIsLoggedIn: (isLoggedIn: boolean) => null,
 }
 
 export const AuthContext = createContext<AuthContextProps>(initialAuthState)
@@ -34,7 +35,7 @@ export default function AuthProvider({ children }: ContextProps) {
   const [token, setToken] = useState<string | null>(null)
   const [ip_info, setIpInfo] = useState<IPInfoInterface | null>(null) //? user state
   const [ipInfoDataLoading, setIpInfoDataLoading] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   // const isLoggedIn = () => !!token
 
   const logout = async () => {
@@ -43,7 +44,19 @@ export default function AuthProvider({ children }: ContextProps) {
 
     setUser(null)
     setToken(null)
+    setIsLoggedIn(false)
     router.push('/auth/sign_in')
+  }
+
+  const handleSetUser = async (user: User) => {
+    await SecureStore.setItemAsync('user', JSON.stringify(user))
+    setUser(user)
+  }
+
+  const handleSetToken = async (token: string) => {
+    setIsLoggedIn(true)
+    await SecureStore.setItemAsync('token', token)
+    setToken(token)
   }
 
   useEffect(() => {
@@ -63,18 +76,21 @@ export default function AuthProvider({ children }: ContextProps) {
 
   useEffect(() => {
     const getToken = async () => {
-      const token = await SecureStore.getItemAsync('token')
+      const storedToken = await SecureStore.getItemAsync('token')
+      // console.log('token', storedToken)
+      setIsLoggedIn(true)
       // console.log('token', token)
-      if (token) {
-        setToken(token)
-        const user = await SecureStore.getItemAsync('user')
+      if (storedToken) {
+        setToken(storedToken)
+        const storedUser = await SecureStore.getItemAsync('user')
         // console.log('user', user)
-        if (user) {
-          const parsedUser = JSON.parse(user)
+        if (storedUser) {
+          // console.log('stored user', storedUser)
+          const parsedUser: User | null = JSON.parse(storedUser)
           setUser(parsedUser)
 
           // check if user account is completed
-          if (!parsedUser?.full_name || !parsedUser?.age || !parsedUser?.gender)
+          if (!parsedUser?.full_name || !parsedUser?.dob || !parsedUser?.gender)
             return router.push('/auth/account_setup')
 
           return router.push('/health/')
@@ -93,7 +109,7 @@ export default function AuthProvider({ children }: ContextProps) {
       if (success) {
         if (data) setUser(data)
         // await SecureStore.setItemAsync('user', JSON.stringify(data))
-        // if (!data?.full_name || !data?.age || !data?.gender)
+        // if (!data?.full_name || !data?.dob || !data?.gender)
         //   router.push('/auth/account_setup')
       } else {
       }
@@ -107,15 +123,16 @@ export default function AuthProvider({ children }: ContextProps) {
   //? declaring value that will be passed down the app through the AuthContext's provider.
   const authContextValue: AuthContextProps = {
     user,
-    setUser,
+    setUser: handleSetUser,
     token,
-    setToken,
+    setToken: handleSetToken,
     ip_info: {
       data: ip_info,
       loading: ipInfoDataLoading,
     },
     logout,
     isLoggedIn,
+    setIsLoggedIn,
   }
 
   return (
