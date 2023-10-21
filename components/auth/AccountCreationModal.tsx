@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router'
 import { Image, Pressable, Text, View } from 'react-native'
 import { images } from '../../constants'
 import ModalPopup from '../ModalPopup'
@@ -10,6 +11,7 @@ interface Props {
 
 const AccountCreationModal = ({ openModal, handleClick }: Props) => {
   // const router = useRouter()
+  const router = useRouter()
 
   return (
     <ModalPopup visible={openModal}>

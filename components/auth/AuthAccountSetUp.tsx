@@ -36,6 +36,7 @@ const AuthAccountSetUp = ({}: Props) => {
     )
       return Alert.alert('Error', 'Fill every field')
 
+
     setIsLoading(true)
     const { message, success, data } = await userRequests.updateAccount({
       id: authContext?.user?.id || '',
