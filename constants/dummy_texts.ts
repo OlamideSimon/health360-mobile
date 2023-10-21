@@ -2,27 +2,30 @@ const HOME_DUMMY_TEXTS = {
   homeHeaderPosts: [
     {
       id: '1',
-      title: 'Health ways to exercise your body.',
+      title: 'Healthy ways to exercise your body.',
       content:
         'Health is wealth and here are some few tips to keep you healthy.',
     },
     {
       id: '2',
-      title: 'Health ways to exercise your body.',
-      content:
-        'Health is wealth and here are some few tips to keep you healthy.',
+      title: 'The Benefits of a Balanced Diet.',
+      content: 'Discover why eating well is essential for your health.',
     },
     {
       id: '3',
-      title: 'Health ways to exercise your body.',
-      content:
-        'Health is wealth and here are some few tips to keep you healthy.',
+      title: 'Mental Health Matters.',
+      content: 'Learn about the importance of mental well-being.',
     },
     {
       id: '4',
-      title: 'Health ways to exercise your body.',
+      title: 'Quality Sleep for a Healthy Life.',
+      content: 'The significance of a good night’s sleep for your health.',
+    },
+    {
+      id: '5',
+      title: 'Benefits of staying hydrated.',
       content:
-        'Health is wealth and here are some few tips to keep you healthy.',
+        'Discover the advantages of drinking enough water throughout the day.',
     },
   ],
 }

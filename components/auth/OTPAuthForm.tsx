@@ -63,6 +63,9 @@ const OTPAuthForm = ({ nextSection, phoneNumber }: componentProps) => {
       otp: otp,
     })
     if (success) {
+      authContext.setIsLoggedIn(true)
+      authContext.setUser(data?.user)
+      authContext.setToken(data?.token)
       nextSection()
     } else {
       Alert.alert('Error', message)

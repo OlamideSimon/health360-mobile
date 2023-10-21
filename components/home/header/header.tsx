@@ -1,14 +1,28 @@
 import { Image, Pressable, Text, TextInput, View } from 'react-native'
 
+import { useContext, useEffect, useState } from 'react'
 import { COLORS, images } from '../../../constants'
+import { AuthContext } from '../../../contexts/auth.context'
 import { styles } from './header.styles'
 
 const Header = () => {
+  const authContext = useContext(AuthContext)
+
+  const [name, setName] = useState('')
+  const [country, setCountry] = useState('')
+
+  useEffect(() => {
+    if (!authContext?.user?.full_name || !authContext?.user?.country) return
+
+    setName(authContext?.user?.full_name.split(' ')[0])
+    setCountry(authContext?.user?.country)
+  }, [authContext?.user?.full_name, authContext?.user?.country])
+
   return (
     <View style={{ paddingHorizontal: 6 }}>
       <View style={styles.header_container}>
         <View style={{ gap: 2 }}>
-          <Text style={{ fontWeight: '600', fontSize: 16 }}>Hi, Simon</Text>
+          <Text style={{ fontWeight: '600', fontSize: 16 }}>Hi, {name}</Text>
           <View
             style={{
               display: 'flex',
@@ -22,7 +36,7 @@ const Header = () => {
               alt='location'
               style={{ width: 20, height: 20, opacity: 0.6 }}
             />
-            <Text style={{ fontSize: 12, color: COLORS.gray }}>Nigeria</Text>
+            <Text style={{ fontSize: 12, color: COLORS.gray }}>{country}</Text>
           </View>
         </View>
 
