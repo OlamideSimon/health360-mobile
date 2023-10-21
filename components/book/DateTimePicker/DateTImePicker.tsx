@@ -1,10 +1,10 @@
 import { AntDesign } from '@expo/vector-icons'
-import React, { useState } from 'react'
-import { Pressable, Text, View } from 'react-native'
-import { styles } from './datetimepicker.styles'
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker'
+import { useState } from 'react'
+import { Pressable, Text, View } from 'react-native'
+import { styles } from './datetimepicker.styles'
 
 const DateTIme = () => {
   // TODO: When sending as a request to backend, time should be changed to time.getTIme()
@@ -44,13 +44,13 @@ const DateTIme = () => {
           <Text style={styles.datePicker_text}>select preferred date</Text>
         </Pressable>
       </View>
-
       {show && (
         <DateTimePicker
           testID="datetime"
           value={mode === 'date' ? date! : time!}
           mode={mode}
           // is24Hour
+          display="inline"
           onChange={onChange}
           minimumDate={new Date()}
         />

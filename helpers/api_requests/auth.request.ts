@@ -1,4 +1,5 @@
-import { ApiResponse } from '../../interface'
+import * as SecureStore from 'expo-secure-store'
+import { ApiResponse, User } from '../../interface'
 import { useApi } from '../api_request'
 import { apiResponse } from '../api_response'
 
@@ -8,10 +9,10 @@ export const authRequests = {
   // fetch user profile
   async profile<D = any>(
     setLoading?: (loading: boolean) => void
-  ): Promise<ApiResponse<D>> {
+  ): Promise<ApiResponse<User>> {
     try {
       const resp = await useApi(setLoading).get('/auth/profile')
-      return apiResponse<D>(true, 'Profile fetched successfully', resp?.data)
+      return apiResponse<User>(true, 'Profile fetched successfully', resp?.data)
     } catch (err: any) {
       return apiResponse(
         false,
@@ -43,6 +44,10 @@ export const authRequests = {
   ): Promise<ApiResponse<D>> {
     try {
       const resp = await useApi(setLoading).post('/auth/login', reqBody)
+
+      await SecureStore.setItemAsync('token', resp?.data?.token)
+      await SecureStore.setItemAsync('user', JSON.stringify(resp?.data?.user))
+
       return apiResponse<D>(true, 'Logged in successfully', resp?.data)
     } catch (err: any) {
       return apiResponse(
