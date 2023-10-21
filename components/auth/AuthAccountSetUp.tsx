@@ -1,15 +1,19 @@
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { useRouter } from 'expo-router'
-import { useState } from 'react'
-import { ActivityIndicator, Text, TextInput, View } from 'react-native'
+import { useContext, useState } from 'react'
+import { ActivityIndicator, Alert, Text, TextInput, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import RadioGroup from 'react-native-radio-buttons-group'
+import { AuthContext } from '../../contexts/auth.context'
+import { userRequests } from '../../helpers/api_requests/user.request'
 import AccountCreationModal from './AccountCreationModal'
 import { styles } from './auth.styles'
 
 interface Props {}
 
 const AuthAccountSetUp = ({}: Props) => {
+  const authContext = useContext(AuthContext)
+
   const router = useRouter()
 
   const [openModal, setOpenModal] = useState<boolean>(false)
@@ -24,13 +28,38 @@ const AuthAccountSetUp = ({}: Props) => {
     age: new Date(),
   })
 
-  const handleSubmission = () => {
-    console.log('Form', accountSetUpFormData)
+  const handleSubmission = async () => {
+    if (
+      !accountSetUpFormData?.full_name ||
+      !accountSetUpFormData?.full_name ||
+      !accountSetUpFormData?.gender
+    )
+      return Alert.alert('Error', 'Fill every filed')
+
+    setIsLoading(true)
+    const { message, success, data } = await userRequests.updateAccount({
+      id: authContext?.user?.id || '',
+      dob: accountSetUpFormData?.age,
+      full_name: accountSetUpFormData?.full_name || '',
+      gender: accountSetUpFormData?.gender,
+    })
+    if (success) {
+      setOpenModal(true)
+    } else {
+      Alert.alert('Error', message)
+    }
+
+    setIsLoading(false)
+  }
+
+  const closeModal = () => {
+    setOpenModal(false)
+    router.push('/health/')
   }
 
   return (
     <View style={{ gap: 30 }}>
-      <AccountCreationModal openModal={openModal} />
+      <AccountCreationModal openModal={openModal} handleClick={closeModal} />
       <View>
         <Text style={styles.title}>Complete your account</Text>
         <Text style={styles.description}>
@@ -49,21 +78,6 @@ const AuthAccountSetUp = ({}: Props) => {
             }))
           }
           placeholder='Enter your full name'
-        />
-      </View>
-
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Age</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Enter your age'
-          keyboardType='url'
-          onChangeText={(dob) =>
-            setAccountSetUpFormData((prev) => ({
-              ...prev,
-              age: new Date(dob),
-            }))
-          }
         />
       </View>
 

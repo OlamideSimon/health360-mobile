@@ -1,5 +1,4 @@
 import { useRouter } from 'expo-router'
-import { useState } from 'react'
 import { Image, Pressable, Text, View } from 'react-native'
 import { images } from '../../constants'
 import ModalPopup from '../ModalPopup'
@@ -7,9 +6,10 @@ import { styles } from './auth.styles'
 
 interface Props {
   openModal: boolean
+  handleClick: () => void
 }
 
-const AccountCreationModal = ({ openModal }: Props) => {
+const AccountCreationModal = ({ openModal, handleClick }: Props) => {
   const router = useRouter()
 
   return (
@@ -23,9 +23,13 @@ const AccountCreationModal = ({ openModal }: Props) => {
 
         <Pressable
           style={{ width: '100%' }}
-          onPress={() => router.push('/(tabs)')}
+          onPress={() => {
+            handleClick()
+          }}
         >
-          <Text style={styles.submit_button}>Continue</Text>
+          <Text style={{ ...styles.submit_button, color: '#fff' }}>
+            Continue
+          </Text>
         </Pressable>
       </View>
     </ModalPopup>

@@ -7,7 +7,7 @@ export interface User {
   country_code: string
   phone_number: string
   profile_image: string
-  age: Date | null
+  dob: Date | null
   gender: string | null
   role: ROLE
   created_at: Date
