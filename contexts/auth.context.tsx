@@ -23,6 +23,7 @@ const initialAuthState: AuthContextProps = {
   },
   isLoggedIn: false,
   setToken: (token: string | null) => null,
+  setIsLoggedIn: (isLoggedIn: boolean) => null,
 }
 
 export const AuthContext = createContext<AuthContextProps>(initialAuthState)
@@ -43,7 +44,19 @@ export default function AuthProvider({ children }: ContextProps) {
 
     setUser(null)
     setToken(null)
+    setIsLoggedIn(false)
     router.push('/auth/sign_in')
+  }
+
+  const handleSetUser = async (user: User) => {
+    await SecureStore.setItemAsync('user', JSON.stringify(user))
+    setUser(user)
+  }
+
+  const handleSetToken = async (token: string) => {
+    setIsLoggedIn(true)
+    await SecureStore.setItemAsync('token', token)
+    setToken(token)
   }
 
   useEffect(() => {
@@ -95,9 +108,9 @@ export default function AuthProvider({ children }: ContextProps) {
       const { message, success, data } = await authRequests.profile()
       if (success) {
         if (data) setUser(data)
-        await SecureStore.setItemAsync('user', JSON.stringify(data))
-        // if (!data?.full_name || !data?.age || !data?.gender)
-        // router.push('/auth/account_setup')
+        // await SecureStore.setItemAsync('user', JSON.stringify(data))
+        // if (!data?.full_name || !data?.dob || !data?.gender)
+        //   router.push('/auth/account_setup')
       } else {
       }
     }
@@ -110,9 +123,9 @@ export default function AuthProvider({ children }: ContextProps) {
   //? declaring value that will be passed down the app through the AuthContext's provider.
   const authContextValue: AuthContextProps = {
     user,
-    setUser,
+    setUser: handleSetUser,
     token,
-    setToken,
+    setToken: handleSetToken,
     ip_info: {
       data: ip_info,
       loading: ipInfoDataLoading,

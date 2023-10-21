@@ -7,12 +7,12 @@ import { AuthContext } from '../../contexts/auth.context'
 import { authRequests } from '../../helpers/api_requests/auth.request'
 import getCountryCode from '../../helpers/get_calling_codes'
 import { maskNumber } from '../../helpers/string.uril'
-import { AuthPhoneFields } from '../../interface'
+import { AuthPhoneFields, User } from '../../interface'
 import { styles } from './auth.styles'
 
 interface componentProps {
   phoneNumber: AuthPhoneFields
-  nextSection: () => void
+  nextSection: (user?: User) => void
 }
 
 const OTPAuthForm = ({ nextSection, phoneNumber }: componentProps) => {
@@ -64,9 +64,10 @@ const OTPAuthForm = ({ nextSection, phoneNumber }: componentProps) => {
     })
     if (success) {
       authContext.setIsLoggedIn(true)
+      console.log('Data', data)
       authContext.setUser(data?.user)
       authContext.setToken(data?.token)
-      nextSection()
+      nextSection(data?.user)
     } else {
       Alert.alert('Error', message)
     }
@@ -84,7 +85,7 @@ const OTPAuthForm = ({ nextSection, phoneNumber }: componentProps) => {
       country: nationality,
     })
     if (success) {
-      nextSection()
+      // nextSection()
     } else {
       Alert.alert('Error', message)
     }
