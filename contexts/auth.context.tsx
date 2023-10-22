@@ -69,31 +69,32 @@ export default function AuthProvider({ children }: ContextProps) {
   // }, [ip_info?.country])
 
   useEffect(() => {
-    const getToken = async () => {
-      const storedToken = await SecureStore.getItemAsync('token')
-      // console.log('token', storedToken)
-      setIsLoggedIn(true)
-      // console.log('token', token)
-      if (storedToken) {
-        setToken(storedToken)
-        const storedUser = await SecureStore.getItemAsync('user')
-        // console.log('user', user)
-        if (storedUser) {
-          // console.log('stored user', storedUser)
-          const parsedUser: User | null = JSON.parse(storedUser)
-          setUser(parsedUser)
+    // const getToken = async () => {
+    //   const storedToken = await SecureStore.getItemAsync('token')
+    //   // console.log('token', storedToken)
+    //   setIsLoggedIn(true)
+    //   // console.log('token', token)
+    //   if (storedToken) {
+    //     setToken(storedToken)
+    //     const storedUser = await SecureStore.getItemAsync('user')
+    //     // console.log('user', user)
+    //     if (storedUser) {
+    //       // console.log('stored user', storedUser)
+    //       const parsedUser: User | null = JSON.parse(storedUser)
+    //       setUser(parsedUser)
 
-          // check if user account is completed
-          if (!parsedUser?.full_name || !parsedUser?.dob || !parsedUser?.gender)
-            return router.push('/auth/account_setup')
+    //       // check if user account is completed
+    //       if (!parsedUser?.full_name || !parsedUser?.dob || !parsedUser?.gender)
+    //         return router.push('/auth/account_setup')
 
-          return router.push('/health/')
-        } else return router.push('/auth/sign_in')
-      } else {
-        return router.push('/auth/sign_in')
-      }
-    }
-    getToken()
+    //       return router.push('/health/')
+    //     } else return router.push('/auth/sign_in')
+    //   } else {
+    //     return router.push('/auth/sign_in')
+    //   }
+    // }
+    // getToken()
+    return router.push('/health/')
   }, [])
 
   useEffect(() => {
