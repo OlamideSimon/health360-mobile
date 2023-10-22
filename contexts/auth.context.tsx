@@ -85,12 +85,12 @@ export default function AuthProvider({ children }: ContextProps) {
 
           // check if user account is completed
           if (!parsedUser?.full_name || !parsedUser?.dob || !parsedUser?.gender)
-            return router.push('/auth/account_setup')
+            return router.replace('/auth/account_setup')
 
-          return router.push('/health/')
-        } else return router.push('/auth/sign_in')
+          return router.replace('/health/')
+        } else return router.replace('/auth/sign_in')
       } else {
-        return router.push('/auth/sign_in')
+        return router.replace('/auth/sign_in')
       }
     }
     getToken()
