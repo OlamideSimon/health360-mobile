@@ -15,8 +15,8 @@ const sign_in = () => {
     const run = async () => {
       const token = await SecureStore.getItemAsync('token')
       const user = await SecureStore.getItemAsync('user')
-      console.log('token', token)
-      console.log('user', user)
+      // console.log('token', token)
+      // console.log('user', user)
     }
     run()
   }, [])
@@ -36,8 +36,8 @@ const sign_in = () => {
     } else {
       setActiveStep(1)
       if (!user?.country || !user?.full_name || !user?.dob)
-        return router.push('/auth/account_setup')
-      router.push('/health/')
+        return router.replace('/auth/account_setup')
+      router.replace('/health/')
     }
   }
 
