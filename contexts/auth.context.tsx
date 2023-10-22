@@ -5,12 +5,7 @@ import { createContext, useEffect, useState } from 'react'
 
 import { thirdPartyRequests } from '../helpers/api_requests/3rdpart.request'
 import { authRequests } from '../helpers/api_requests/auth.request'
-import {
-  AuthContextProps,
-  ContextProps,
-  IPInfoInterface,
-  User,
-} from '../interface'
+import { AuthContextProps, ContextProps, IPInfoInterface, User } from '../interface'
 
 const initialAuthState: AuthContextProps = {
   user: null,
@@ -61,10 +56,9 @@ export default function AuthProvider({ children }: ContextProps) {
 
   useEffect(() => {
     const fetchPosition = async () => {
-      const ip =
-        await thirdPartyRequests.fetchIpInfoData<IPInfoInterface | null>(
-          setIpInfoDataLoading
-        )
+      const ip = await thirdPartyRequests.fetchIpInfoData<IPInfoInterface | null>(
+        setIpInfoDataLoading
+      )
       if (ip.success && ip.data) {
         setIpInfo(ip.data)
         // console.log('IP_DATA', ip.data)
@@ -135,9 +129,5 @@ export default function AuthProvider({ children }: ContextProps) {
     setIsLoggedIn,
   }
 
-  return (
-    <AuthContext.Provider value={authContextValue}>
-      {children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>
 }
