@@ -18,7 +18,7 @@ const Profile = () => {
 
   return (
     <AppContainer title="User Profile" hideBackButton>
-      <View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 24 }}>
+      <View style={{ flex: 1, paddingTop: 30, paddingHorizontal: 24 }}>
         <ProfileHeader />
 
         <Notifications />
@@ -26,6 +26,7 @@ const Profile = () => {
         <Preferences />
 
         <Others />
+
 
         <Pressable onPress={() => setShowModal(true)}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>

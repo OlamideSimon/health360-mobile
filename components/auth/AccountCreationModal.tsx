@@ -10,6 +10,7 @@ interface Props {
 }
 
 const AccountCreationModal = ({ openModal, handleClick }: Props) => {
+  // const router = useRouter()
   const router = useRouter()
 
   return (
