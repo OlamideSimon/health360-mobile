@@ -12,8 +12,8 @@ const Profile = () => {
   const authContext = useContext(AuthContext)
 
   return (
-    <AppContainer title='User Profile' hideBackButton>
-      <View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 24 }}>
+    <AppContainer title="User Profile" hideBackButton>
+      <View style={{ flex: 1, paddingTop: 30, paddingHorizontal: 24 }}>
         <ProfileHeader />
 
         <Notifications />
@@ -21,6 +21,7 @@ const Profile = () => {
         <Preferences />
 
         <Others />
+
 
         <Pressable onPress={() => authContext?.logout()}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>

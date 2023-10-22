@@ -34,7 +34,8 @@ const AuthAccountSetUp = ({}: Props) => {
       !accountSetUpFormData?.full_name ||
       !accountSetUpFormData?.gender
     )
-      return Alert.alert('Error', 'Fill every filed')
+      return Alert.alert('Error', 'Fill every field')
+
 
     setIsLoading(true)
     const { message, success, data } = await userRequests.updateAccount({
@@ -45,6 +46,7 @@ const AuthAccountSetUp = ({}: Props) => {
     })
     if (success) {
       setOpenModal(true)
+      authContext?.setUser(data)
     } else {
       Alert.alert('Error', message)
     }
